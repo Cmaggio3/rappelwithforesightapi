@@ -1,4 +1,7 @@
 {
+  "scripts":{
+    "start": "node app.js"
+  }
   "name": "nodejs_restapi",
   "version": "1.0.0",
   "description": "",
