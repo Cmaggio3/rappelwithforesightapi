@@ -46,6 +46,6 @@ app.get('/users/:id',(req,res) =>{
 })
 
 //localhost:3004
-app.listen(3004, (req, res) => {
-    console.log("Server is up and listening on 3004...")
+app.listen(process.env.PORT || 3000, (req, res) => {
+    console.log("Server is up and listening...")
 })
