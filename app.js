@@ -21,15 +21,8 @@ app.get("/", (req, res) =>{
 app.get('/users/:id',(req,res) =>{
     console.log("Fetching user with id: " + req.params.id)
 
-/*     const con = mysql.createConnection({
-        host: "jacobsladderintaketeam.cik1yin3pif1.us-east-1.rds.amazonaws.com",
-        user: "intaketeam",
-        password: "IwantanA123",
-        database: "intaketeam"
-    }) */
-
     UserID = req.params.id
-    var sql = "SELECT UserFirstName FROM User WHERE userID = ?";
+    var sql = "SELECT * FROM User WHERE userID = ?";
 
     con.query(sql, UserID, function(err, result, fields) {
         if (err) {
@@ -38,7 +31,6 @@ app.get('/users/:id',(req,res) =>{
             res.end()
             throw err
         }
-        console.log(result[0].UserFirstName);
         res.json(result[0])
     });
 
