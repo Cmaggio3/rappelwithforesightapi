@@ -4,30 +4,29 @@ const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
 
+const con = mysql.createConnection({
+	host: "jacobsladderintaketeam.cik1yin3pif1.us-east-1.rds.amazonaws.com",
+	user: "intaketeam",
+	password: "IwantanA123",
+	database: "intaketeam"
+})
 
 app.use(morgan('short'))
 
 app.get("/", (req, res) =>{
     console.log("Responding to root route")
-    res.send("Hello from ROOOOOt")
-})
-
-app.get("/users",(req,res) => {
-    var user1 = {firstName: "Stephen", lastName: "Curry"}
-    const user2 = {firstName: "josh", lastname: "kirks"}
-    res.json([user1,user2])
-    //res.send("nodemon auto updates when I save this file")
+    res.send("Root")
 })
 
 app.get('/users/:id',(req,res) =>{
     console.log("Fetching user with id: " + req.params.id)
 
-    const con = mysql.createConnection({
+/*     const con = mysql.createConnection({
         host: "jacobsladderintaketeam.cik1yin3pif1.us-east-1.rds.amazonaws.com",
         user: "intaketeam",
         password: "IwantanA123",
         database: "intaketeam"
-    })
+    }) */
 
     UserID = req.params.id
     var sql = "SELECT UserFirstName FROM User WHERE userID = ?";
