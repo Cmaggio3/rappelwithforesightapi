@@ -11,6 +11,12 @@ const con = mysql.createConnection({
 	database: "intaketeam"
 })
 
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
+
 app.use(morgan('short'))
 
 app.get("/", (req, res) =>{
