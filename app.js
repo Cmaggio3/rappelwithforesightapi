@@ -24,23 +24,22 @@ app.get("/", (req, res) =>{
     res.send("Root")
 })
 
-app.get('/users/:id',(req,res) =>{
-    console.log("Fetching user with id: " + req.params.id)
-
-    UserID = req.params.id
-    var sql = "SELECT * FROM User WHERE userID = ?";
-
-    con.query(sql, UserID, function(err, result, fields) {
-        if (err) {
-            console.log("Failed to query: " + err)
-            res.sendStatus(500);
-            res.end()
-            throw err
-        }
-        res.json(result[0])
-    });
-
-    // res.end()
+app.get('/locations/:id',(reg,res) =>{
+	console.log("Fetching location with id: " + reg.params.id)
+	
+	LocationID = req.params.id
+	var sql = "SELECT * FROM Locations WHERE LocationID = ?";
+	
+	con.query(sql, LocationID, function(err, result, fields){
+		if(err){
+			console.log("Failed to query: " + err)
+			res.sendStatus(500);
+			res.end()
+			throw err
+		}
+		res.json(result[0])
+	});
+	res.end()
 })
 
 //localhost:3004
