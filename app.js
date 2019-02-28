@@ -5,7 +5,7 @@ const morgan = require('morgan')
 const mysql = require('mysql')
 
 const con = mysql.createConnection({
-	host: "jacobsladderintaketeam.cik1yin3pif1.us-east-1.rds.amazonaws.com",
+	host: "rappelwithforesight.cik1yin3pif1.us-east-1.rds.amazonaws.com",
 	user: "Cmaggio3",
 	password: "IwantanA123",
 	database: "RappelWithForesight"
