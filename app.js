@@ -39,7 +39,6 @@ app.get('/locations/:id',(reg,res) =>{
 		}
 		res.json(result[0])
 	});
-	res.end()
 })
 
 //localhost:3004
