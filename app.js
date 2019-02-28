@@ -25,7 +25,7 @@ app.get("/", (req, res) =>{
 })
 
 app.get('/locations/:id',(req,res) =>{
-	console.log("Fetching location with id: " + reg.params.id)
+	console.log("Fetching location with id: " + req.params.id)
 	
 	LocationID = req.params.id
 	var sql = "SELECT * FROM Locations WHERE LocationID = ?";
