@@ -11,7 +11,11 @@ const con = mysql.createConnection({
 	database: "RappelWithForesight"
 })
 
-
+app.all('/*', function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 
 app.use(morgan('short'))
 
@@ -20,7 +24,7 @@ app.get("/", (req, res) =>{
     res.send("Root")
 })
 
-app.get('/locations/:id',(reg,res) =>{
+app.get('/locations/:id',(req,res) =>{
 	console.log("Fetching location with id: " + reg.params.id)
 	
 	LocationID = req.params.id
