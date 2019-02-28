@@ -8,7 +8,7 @@ const con = mysql.createConnection({
 	host: "jacobsladderintaketeam.cik1yin3pif1.us-east-1.rds.amazonaws.com",
 	user: "Cmaggio3",
 	password: "IwantanA123",
-	database: "rappelwithforesight"
+	database: "RappelWithForesight"
 })
 
 app.all('/*', function(req, res, next) {
