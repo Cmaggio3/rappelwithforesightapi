@@ -6,9 +6,9 @@ const mysql = require('mysql')
 
 const con = mysql.createConnection({
 	host: "jacobsladderintaketeam.cik1yin3pif1.us-east-1.rds.amazonaws.com",
-	user: "intaketeam",
+	user: "Cmaggio3",
 	password: "IwantanA123",
-	database: "intaketeam"
+	database: "rappelwithforesight"
 })
 
 app.all('/*', function(req, res, next) {
