@@ -41,6 +41,22 @@ app.get('/locations/:id',(req,res) =>{
 	});
 })
 
+app.get('/locations',(req,res) =>{
+	console.log("Fetching all locations")
+	
+	var sql = "SELECT LocationID, LocationName FROM Locations;"
+	
+	con.query(sql,function(err,result,fields){
+		if(err){
+			console.log("Failed to query: " + err)
+			res.sendStatus(500);
+			res.end()
+			throw err
+		}
+		res.json(result)
+	});
+})
+
 //localhost:3004
 app.listen(process.env.PORT || 3000, (req, res) => {
     console.log("Server is up and listening...")
