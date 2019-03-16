@@ -44,7 +44,7 @@ app.get('/locations/:id',(req,res) =>{
 app.get('/locations',(req,res) =>{
 	console.log("Fetching all locations")
 	
-	var sql = "SELECT LocationID, LocationName FROM Locations;"
+	var sql = "SELECT * FROM Locations;"
 	
 	con.query(sql,function(err,result,fields){
 		if(err){
