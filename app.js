@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const morgan = require('morgan')
 const mysql = require('mysql')
+const bodyParser = require('body-parser')
 
 const con = mysql.createConnection({
 	host: "rappelwithforesight.cik1yin3pif1.us-east-1.rds.amazonaws.com",
@@ -18,7 +19,7 @@ app.all('/*', function(req, res, next) {
 });
 
 app.use(morgan('short'))
-
+app.use(bodyParser.json())
 app.get("/", (req, res) =>{
     console.log("Responding to root route")
     res.send("Root")
