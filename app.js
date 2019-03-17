@@ -77,7 +77,7 @@ app.post('/locations/',(req,res) =>{
 	valuesRefined = valuesRefined.substring(0,valuesRefined.length-1);
 	
 	
-	var query = "INSERT INTO "+ formName +" SET " + valuesRefined + " ON DUPLICATE KEY UPDATE " + valuesRefined;
+	var query = "INSERT INTO Locations SET " + valuesRefined + " ON DUPLICATE KEY UPDATE " + valuesRefined;
 	
 	con.query(query,function(err,rows){
 		if(err) {
