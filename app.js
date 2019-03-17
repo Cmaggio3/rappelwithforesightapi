@@ -20,7 +20,7 @@ app.all('/*', function(req, res, next) {
 
 app.use(morgan('short'))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) =>{
     console.log("Responding to root route")
     res.send("Root")
