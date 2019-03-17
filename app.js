@@ -57,7 +57,7 @@ app.get('/locations',(req,res) =>{
 	});
 })
 
-app.post('/locations/',(req,res)) =>{
+app.post('/locations/',(req,res) =>{
 	console.log("posting location")
 	
 	var values = req.body
@@ -71,7 +71,7 @@ app.post('/locations/',(req,res)) =>{
 			res.json({"Error" : false, "Message" : "Success"});
 		}
 	});
-}
+})
 
 //localhost:3004
 app.listen(process.env.PORT || 3000, (req, res) => {
