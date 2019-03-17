@@ -71,7 +71,6 @@ app.post('/locations/',(req,res) =>{
 	var valuesRaw = req.body
 	var valuesRefined = ''
 	valuesParsed = valuesRaw
-	valuesRefined += 'ChildID="'+ChildID+'",'
 	for(var index in valuesParsed){
 		valuesRefined += index + '="'+valuesParsed[index]+'",';
 	}
