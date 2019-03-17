@@ -20,6 +20,7 @@ app.all('/*', function(req, res, next) {
 
 app.use(morgan('short'))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) =>{
     console.log("Responding to root route")
     res.send("Root")
@@ -64,7 +65,7 @@ app.post('/locations/',(req,res) =>{
 	var values = req.body
 	var query = "INSERT INTO Locations SET " + values + " ON DUPLICATE KEY UPDATE " + values;
 	
-	console.log("query is " + query)
+	console.log("query is " + JSON.parsquery)
 	
 	con.query(query,function(err,rows){
 		if(err) {
