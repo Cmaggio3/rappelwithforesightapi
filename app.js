@@ -62,7 +62,7 @@ app.post('/locations/',(req,res)) =>{
 	
 	var query = "INSERT INTO Locations SET " + valuesRefined + " ON DUPLICATE KEY UPDATE " + valuesRefined;
 	
-	connection.query(query,function(err,rows){
+	con.query(query,function(err,rows){
 		if(err) {
 			res.json({"Error" : true, "Message" : "Error executing MySQL query"});
 		} else {
