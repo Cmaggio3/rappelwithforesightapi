@@ -62,10 +62,23 @@ app.get('/locations',(req,res) =>{
 app.post('/locations/',(req,res) =>{
 	console.log("posting location")
 	
-	var values = JSON.stringify(req.body)
-	var query = "INSERT INTO Locations SET " + values + " ON DUPLICATE KEY UPDATE " + values;
+	//var values = JSON.stringify(req.body)
+	//var query = "INSERT INTO Locations SET " + values + " ON DUPLICATE KEY UPDATE " + values;
 	
-	console.log("query is " + query)
+	//console.log("query is " + query)
+	
+	
+	var valuesRaw = req.body
+	var valuesRefined = ''
+	valuesParsed = valuesRaw
+	valuesRefined += 'ChildID="'+ChildID+'",'
+	for(var index in valuesParsed){
+		valuesRefined += index + '="'+valuesParsed[index]+'",';
+	}
+	valuesRefined = valuesRefined.substring(0,valuesRefined.length-1);
+	
+	
+	var query = "INSERT INTO "+ formName +" SET " + valuesRefined + " ON DUPLICATE KEY UPDATE " + valuesRefined;
 	
 	con.query(query,function(err,rows){
 		if(err) {
