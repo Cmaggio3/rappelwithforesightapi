@@ -62,8 +62,9 @@ app.post('/locations/',(req,res) =>{
 	console.log("posting location")
 	
 	var values = req.body
-	console.log("the body is " + req.body)
 	var query = "INSERT INTO Locations SET " + values + " ON DUPLICATE KEY UPDATE " + values;
+	
+	console.log("query is " + query)
 	
 	con.query(query,function(err,rows){
 		if(err) {
