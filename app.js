@@ -62,7 +62,7 @@ app.get('/locations',(req,res) =>{
 app.post('/locations/',(req,res) =>{
 	console.log("posting location")
 	
-	var values = req.body
+	var values = JSON.stringify(req.body)
 	var query = "INSERT INTO Locations SET " + values + " ON DUPLICATE KEY UPDATE " + values;
 	
 	console.log("query is " + query)
