@@ -57,6 +57,20 @@ app.get('/locations',(req,res) =>{
 	});
 })
 
+app.post('/locations/',(req,res)) =>{
+	console.log("posting location")
+	
+	var query = "INSERT INTO Locations SET " + valuesRefined + " ON DUPLICATE KEY UPDATE " + valuesRefined;
+	
+	connection.query(query,function(err,rows){
+		if(err) {
+			res.json({"Error" : true, "Message" : "Error executing MySQL query"});
+		} else {
+			res.json({"Error" : false, "Message" : "Success"});
+		}
+	});
+}
+
 //localhost:3004
 app.listen(process.env.PORT || 3000, (req, res) => {
     console.log("Server is up and listening...")
