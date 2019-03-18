@@ -62,12 +62,6 @@ app.get('/locations',(req,res) =>{
 app.post('/locations/',(req,res) =>{
 	console.log("posting location")
 	
-	//var values = JSON.stringify(req.body)
-	//var query = "INSERT INTO Locations SET " + values + " ON DUPLICATE KEY UPDATE " + values;
-	
-	//console.log("query is " + query)
-	
-	
 	var valuesRaw = req.body
 	var valuesRefined = ''
 	valuesParsed = valuesRaw
@@ -77,12 +71,17 @@ app.post('/locations/',(req,res) =>{
 	valuesRefined = valuesRefined.substring(0,valuesRefined.length-1);
 	
 	
+	
 	var query = "INSERT INTO Locations SET " + valuesRefined + " ON DUPLICATE KEY UPDATE " + valuesRefined;
+	
+	console.log(query)
 	
 	con.query(query,function(err,rows){
 		if(err) {
+			console.log("query Failure")
 			res.json({"Error" : true, "Message" : "Error executing MySQL query"});
 		} else {
+			console.log("query success")
 			res.json({"Error" : false, "Message" : "Success"});
 		}
 	});
