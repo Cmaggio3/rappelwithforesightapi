@@ -68,7 +68,7 @@ app.post('/locations/',(req,res) =>{
 	for(var index in valuesParsed){
 		if(index == 'Markers')
 		{
-			valuesRefined += index + '='+JSON.stringify(valuesParsed[index]+',';
+			valuesRefined += index + '='+JSON.stringify(valuesParsed[index])+',';
 		}
 		else
 		{
