@@ -66,7 +66,14 @@ app.post('/locations/',(req,res) =>{
 	var valuesRefined = ''
 	valuesParsed = valuesRaw
 	for(var index in valuesParsed){
-		valuesRefined += index + '="'+valuesParsed[index]+'",';
+		if(index == 'Markers')
+		{
+			valuesRefined += index + '='+JSON.stringify(valuesParsed[index]+',';
+		}
+		else
+		{
+			valuesRefined += index + '="'+valuesParsed[index]+'",';
+		}
 	}
 	valuesRefined = valuesRefined.substring(0,valuesRefined.length-1);
 	
