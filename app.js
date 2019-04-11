@@ -62,6 +62,7 @@ app.get('/locations',(req,res) =>{
 app.post('/locations/',(req,res) =>{
 	console.log("posting location")
 	
+	
 	var valuesRaw = req.body
 	var valuesRefined = ''
 	valuesParsed = valuesRaw
@@ -84,6 +85,24 @@ app.post('/locations/',(req,res) =>{
 	console.log(query)
 	
 	con.query(query,function(err,rows){
+		if(err) {
+			console.log("query Failure")
+			res.json({"Error" : true, "Message" : "Error executing MySQL query"});
+		} else {
+			console.log("query success")
+			res.json({"Error" : false, "Message" : "Success"});
+		}
+	});
+})
+
+
+app.post('/locations/:id/delete',(req,res) =>{
+	console.log("deleting location")
+	
+	LocationID = req.params.id
+	var sql = "DELETE FROM Locations WHERE LocationID = ?";
+	
+	con.query(sql,function(err,rows){
 		if(err) {
 			console.log("query Failure")
 			res.json({"Error" : true, "Message" : "Error executing MySQL query"});
