@@ -102,7 +102,7 @@ app.post('/locations/:id/delete',(req,res) =>{
 	LocationID = req.params.id
 	var sql = "DELETE FROM Locations WHERE LocationID = ?";
 	
-	con.query(sql,function(err,rows){
+	con.query(sql,LocationID,function(err,rows){
 		if(err) {
 			console.log("query Failure")
 			res.json({"Error" : true, "Message" : "Error executing MySQL query"});
